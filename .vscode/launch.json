@@ -1,0 +1,33 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "cwd": "${workspaceRoot}",
+            "executable": "./rtthread.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "serverpath": "C:/Program Files (x86)/SEGGER/JLink/JLinkGDBServerCL.exe",
+            "interface": "swd",
+            "device": "MCIMXRT1052QSPI",
+            "runToMain": true,
+            "preRestartCommands": [
+              "enable breakpoint",
+              "monitor reset",
+              "monitor semihosting enable",
+              "monitor semihosting ioclient 2"
+            ],
+            "preLaunchTask": "build",
+            "postLaunchCommands": [
+              "enable breakpoint",
+              "monitor reset",
+              "monitor semihosting enable",
+              "monitor semihosting ioclient 2"
+            ]
+          }
+    ]
+}
